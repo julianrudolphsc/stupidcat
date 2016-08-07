@@ -10,6 +10,17 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
+//configure mongoose
+mongoose.connect('mongodb://localhost/smelly_cat');
+var catSchema = new mongoose.Schema({
+  name: String,
+  image: String,
+  description: String,
+  created: {type: Date, default: Date.now}
+});
+
+var Cat = mongoose.model('Cat', catSchema);
+
 //routes
 //home route
 app.get('/', function(req, res){
@@ -19,7 +30,13 @@ app.get('/', function(req, res){
 //RESTful Routes
 //index /cats
 app.get('/cats', function(req, res){
-  res.render('cats');
+  Cat.find({}, function(err, cats){
+    if(err){
+      console.log(err);
+    }else{
+      res.render('cats', {cats: cats});
+    }
+  });
 });
 
 //listener

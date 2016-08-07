@@ -1,5 +1,22 @@
 <%include partials/header%>
 
-<h1>this is cats.ejs</h1>
+<div class="container">
+  <div class="row">
+    <div class="jumbotron">
+      <h1 class="text-center">Wanna See Some Kitties?</h1>
+    </div>
+  </div>
+
+<div class="row">
+    <%cats.forEach(function(cat){ %>
+        <h2><%= cat.name%></h2>
+        <img class="thumbnail" src="<%= cat.image%>" alt="">
+        <p><em><span><%= cat.created.toDateString()%></span></em></p>
+        <p class="caption"><%= cat.description.substring(0, 50)%>...</p>
+      </div>
+    <% }) %>
+
+  </div>
+</div>
 
 <%include partials/footer%>
