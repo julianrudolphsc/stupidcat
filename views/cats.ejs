@@ -9,14 +9,15 @@
 
 <div class="row">
     <%cats.forEach(function(cat){ %>
-        <h2><%= cat.name%></h2>
-        <img class="thumbnail" src="<%= cat.image%>" alt="">
-        <p><em><span><%= cat.created.toDateString()%></span></em></p>
-        <p class="caption"><%= cat.description.substring(0, 50)%>...</p>
-      </div>
+      <div class="col-md-4">
+          <h2><%= cat.name%></h2>
+          <img class="thumbnail" src="<%= cat.image%>" alt="" height="300px" width="300px">
+          <p><em><span><%= cat.created.toDateString()%></span></em></p>
+          <p class="caption"><%= cat.description.substring(0, 50)%>...</p>
+        </div>
     <% }) %>
+    </div>
 
   </div>
-</div>
 
 <%include partials/footer%>
