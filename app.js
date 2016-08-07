@@ -39,6 +39,13 @@ app.get('/cats', function(req, res){
   });
 });
 
+//new get
+app.get('/cats/new', function(req, res){
+  res.render('new');
+});
+
+//new post
+
 //listener
 app.listen(3000, function(){
   console.log("Server Started!");

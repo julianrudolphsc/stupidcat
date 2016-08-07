@@ -1,0 +1,31 @@
+<%include /partials/header%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Add Smelly Cat</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form action="/cats/new" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" class="form-control" placeholder="Smelly Cats Name...">
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input type="text" name="image" class="form-control" placeholder="Image URL...">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" name="description" placeholder="Description...">
+        </div>
+        <input type="submit" class="btn btn-primary btn-xs">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<%include /partials/footer%>
